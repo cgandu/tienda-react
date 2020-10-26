@@ -1,5 +1,8 @@
 import React from 'react';
+import CartWidget from './CartWidget';
 import StoreIcon from '@material-ui/icons/Store';
+import AccountCircleIcon from '@material-ui/icons/AccountCircle';
+
 
 const NavBar = function(){
     return <nav class="navbar navbar-expand-lg navbar-light bg-light" >
@@ -8,7 +11,7 @@ const NavBar = function(){
     <span class="navbar-toggler-icon"></span>
   </button>
 
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+  <div class="collapse navbar-collapse" id="navbarSupportedContent" >
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
         <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
@@ -44,9 +47,14 @@ const NavBar = function(){
     </ul>
     <form class="form-inline my-2 my-lg-0">
       <input class="form-control mr-sm-2" type="search" placeholder="Buscar" aria-label="Search"/>
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
+      
+           
     </form>
- 
+    <button type="button" class="btn btn-sm btn-outline-dark"><CartWidget /></button>
+    <div><AccountCircleIcon fontSize="large" /></div>
+    
+    
+    
   </div>
 
 
