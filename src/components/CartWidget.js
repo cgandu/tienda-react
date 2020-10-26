@@ -10,7 +10,7 @@ function CartWidget(){
     vertical: 'bottom',
     horizontal: 'right',
   }}>
-    <ShoppingCartOutlinedIcon fontSize="medium"/>
+    <ShoppingCartOutlinedIcon fontSize="default"/>
     </Badge>
     </>
 }
