@@ -1,5 +1,5 @@
 import React from "react";
-import ItemCount from "./ItemCount.js";
+
 
 
 function Item({ item }) {
@@ -7,19 +7,15 @@ function Item({ item }) {
     // { id, title, price, pictureUrl 
 
 
-    return <>
-    
-
-<div>
-<h3>titulo de item: {item.title}</h3>
-<h5>precio de item: $ {item.price}</h5>
-<h5>id de item: {item.id}</h5>
-<img style={{maxWidth: "12rem", alignSelf: "center"}} src={item.pictureUrl} className="card-img-top" alt="..." />
-
-</div>
-<ItemCount inicial={1} stock={20} onAdd={(q) => console.log(q) }/>
-<br></br>
-
+    return <>    
+    <div className="card">
+      <img src={item.pictureUrl} className="card-img-top" alt="..." />
+      <div className="card-body">
+        <h5 className="card-title">{item.title}</h5>
+        <p className="card-text">$ {item.price} Mini descripcion </p>
+      </div>
+    </div>
+  
     </>
 
 

@@ -8,30 +8,34 @@ import ItemList from "./ItemList.js"
 function ItemListContainer({title}){
 
   const [arrayDeItems, setArrayDeItems] = useState([]);
+  const [hidden, setHidden] = useState(true);
+
 
   useEffect(() => {
     
-    falsoLlamadoAServer.then((result) => setArrayDeItems(result));
-    
+    falsoLlamadoAServer.then((result) => {
+      setArrayDeItems(result)
+      setHidden(false);
+    }); 
   
-  })
+  });
   
 
-const falsoLlamadoAServer = new Promise((res, rej) => {
-  
-  setTimeout(() => {
+  const falsoLlamadoAServer = new Promise((res, rej) => {
 
-    const datosItem1 = {id: 1, title: "titulo 1", price: 100000, pictureUrl: "https://tinyurl.com/y6rtw6pb"};
-    const datosItem2 = {id: 2, title: "titulo 2", price: 300000, pictureUrl: "https://tinyurl.com/y6rtw6pb"};
-    const datosItem3 = {id: 3, title: "titulo 3", price: 500000, pictureUrl: "https://tinyurl.com/y6rtw6pb"};
-    const elarray = [datosItem1, datosItem2, datosItem3];
-    
-    res(elarray);
+    setTimeout(() => {
 
-  }, 3000);
+      const datosItem1 = {id: 1, title: "ItemListContainer", price: 100000, pictureUrl: "https://dummyimage.com/600x400/000/fff.jpg"};
+      const datosItem2 = {id: 2, title: "ItemListContainer", price: 300000, pictureUrl: "https://dummyimage.com/600x400/000/fff.jpg"};
+      const datosItem3 = {id: 3, title: "ItemListContainer", price: 500000, pictureUrl: "https://dummyimage.com/600x400/000/fff.jpg"};
+      const elarray = [datosItem1, datosItem2, datosItem3];
 
-  
-});
+      res(elarray);
+
+    }, 3000);
+
+
+  });
 
 
 
@@ -40,8 +44,9 @@ const falsoLlamadoAServer = new Promise((res, rej) => {
     return <>
     <div>
       <h1>{title}</h1>
+      {hidden && <div className="spinner-border text-primary" role="status"><span className="sr-only">Loading...</span></div> }
+      {!hidden && <ItemList items={arrayDeItems}/>}
       
-      <ItemList items={arrayDeItems}/>
     
     </div>  
     

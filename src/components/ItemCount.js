@@ -4,7 +4,7 @@ import AddCircleIcon from '@material-ui/icons/AddCircle';
 import RemoveCircleIcon from '@material-ui/icons/RemoveCircle';
 
 
-function ItemCount({stock, inicial = 1, onAdd}){
+function ItemCount({stock, inicial = 1, msg="Agregar al carrito", onAdd}){
 
 
 const [cantidad, setCantidad] = useState(inicial);
@@ -29,15 +29,15 @@ return <>
 
 
  
-    <div className="btn-group" style={{border: "solid"}}>
+    <div className="btn-group" style={{width: "10rem", alignSelf: "center"}}>
         <RemoveCircleIcon onClick={removeOne}/>
-        <div style={{width: "12rem"}}>{cantidad}</div>
+        <div style={{width: "10rem", backgroundColor: "#F8F8FF"}}>{cantidad}</div>
         <AddCircleIcon onClick={addOne} />
     </div>
    
     <div>
 
-    <button onClick={() => onAdd(cantidad)} type="button" className="btn btn-outline-primary" style={{width: "15rem", marginTop: "5px"}}>Agregar al carrito</button>
+    <button onClick={() => onAdd(cantidad)} type="button" className="btn btn-sm btn-outline-primary" style={{width: "10rem", marginTop: "5px"}}>{msg}</button>
     </div>    
     
     
