@@ -27,7 +27,7 @@ function addOne(){
 
 return <>
 
-
+ 
  
     <div className="btn-group" style={{width: "10rem", alignSelf: "center"}}>
         <RemoveCircleIcon onClick={removeOne}/>
