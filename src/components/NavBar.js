@@ -6,8 +6,8 @@ import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 
 
 const NavBar = function(){
-    return <nav className="navbar navbar-expand-lg navbar-light bg-light" >
-<Link to="/">[<StoreIcon style={{ fontSize: "3rem" }}/> LOGO DE TIENDA]</Link>
+    return <nav className="navbar navbar-expand-lg navbar-dark bg-dark" >
+<Link to="/" style={{textDecoration: "none"}}>[<StoreIcon style={{ fontSize: "3rem" }}/> LOGO DE TIENDA]</Link>
   <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span className="navbar-toggler-icon"></span>
   </button>
@@ -48,8 +48,8 @@ const NavBar = function(){
       
            
     </form>
-    <button type="button" className="btn btn-sm btn-outline-dark"><Link to="/cart"><CartWidget /></Link></button>
-    <div style={{margin: "10px"}}><AccountCircleIcon fontSize="large" /></div>
+    <button type="button" className="btn btn-sm btn-light"><Link to="/cart"><CartWidget /></Link></button>
+    <div style={{margin: "10px", color: "white"} }><AccountCircleIcon fontSize="large"/></div>
     
     
     
