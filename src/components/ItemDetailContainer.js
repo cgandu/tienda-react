@@ -23,20 +23,15 @@ function ItemDetailContainer({ catalogo }) {
 
   return (
     <>
-      <div className="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 row-cols-xl-5 justify-content-center">
-        <div className="col mb-16">
-          {" "}
-          {hidden && (
+{hidden && (
             <div
               className="spinner-border float-center"
-              style={{ position: "relative", top: "50%" }}
+              style={{ position: "absolute", top: "50%" }}
               role="status"
             >
               <span className="sr-only">Loading...</span>
             </div>
           )}
-        </div>
-      </div>
       <div
         className="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 row-cols-xl-5 justify-content-center"
         style={{ marginTop: "2rem" }}

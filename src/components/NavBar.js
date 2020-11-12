@@ -7,14 +7,14 @@ import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 
 const NavBar = function(){
     return <nav className="navbar navbar-expand-lg navbar-dark bg-dark" >
-<Link to="/" style={{textDecoration: "none"}}>[<StoreIcon style={{ fontSize: "3rem" }}/> LOGO DE TIENDA]</Link>
+<Link to="/" style={{textDecoration: "none"}}><img src="LOGOMERCADITOGDE.jpg" style={{maxWidth: "100px", borderRadius: "100%"}} /></Link>
   <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span className="navbar-toggler-icon"></span>
   </button>
 
   <div className="collapse navbar-collapse" id="navbarSupportedContent" >
-    <ul className="navbar-nav mr-auto">
-      <li className="nav-item">
+    <ul className="navbar-nav ml-auto">
+      <li className="nav-item ml-auto">
         <a className="nav-link" href="http://www.google.com.ar">Ofertas</a>
       </li>
       <li className="nav-item">
