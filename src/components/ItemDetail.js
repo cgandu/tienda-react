@@ -1,25 +1,43 @@
-/*jshint esversion: 6 */
 import React, { useState } from "react";
 import ItemCount from "./ItemCount.js";
 import Item from "./Item.js";
+import { Link } from "react-router-dom";
 
 function ItemDetail({ item }) {
-  const [itemsAComprar, setItemsAComprar] = useState(1);
+  const [qAdded, setQAdded] = useState(1);
+  const [hidden, setHidden] = useState(false);
+  function onQAdded(q) {
+    setQAdded(q);
+    setHidden(true);
+  }
 
   return (
     <>
       <Item item={item} />
       <div className="card">
-        <ItemCount inicial={1} stock={20} onChangeQ={setItemsAComprar} />
+        {!hidden && (
+          <ItemCount
+            inicial={1}
+            stock={20}
+            msg={"Agregar al carrito"}
+            onAdd={onQAdded}
+          />
+        )}
 
-        <button
-          onClick={() => console.log(itemsAComprar)}
-          type="button"
-          className="btn btn-sm btn-dark"
-          style={{ margin: "10px" }}
-        >
-          Agregar al carrito ({itemsAComprar})
-        </button>
+        {hidden && (
+          <>
+            <Link to="/cart">
+              <button
+                className="btn btn-success btn-lg btn-block"
+                onClick={() =>
+                  console.log("Esto se loguea desde ItemDetail: ", qAdded)
+                }
+              >
+                Terminar la compra
+              </button>
+            </Link>
+          </>
+        )}
       </div>
     </>
   );

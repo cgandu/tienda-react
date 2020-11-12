@@ -18,29 +18,15 @@ const NavBar = function(){
         <a className="nav-link" href="http://www.google.com.ar">Ofertas</a>
       </li>
       <li className="nav-item">
-        <a className="nav-link" href="http://www.google.com.ar">Combos</a>
+        <a className="nav-link" href="http://www.google.com.ar">Estuches</a>
       </li>
       <li className="nav-item">
-        <a className="nav-link" href="http://www.google.com.ar">Contacto</a>
+        <a className="nav-link" href="http://www.google.com.ar">Catalogo</a>
       </li>
       <li className="nav-item">
-        <a className="nav-link" href="http://www.google.com.ar">Donde estamos</a>
+        <a className="nav-link" href="http://www.google.com.ar">Contactanos</a>
       </li>
-      <li className="nav-item">
-        <a className="nav-link" href="http://www.google.com.ar">Liquidaciones</a>
-      </li>
-     
-      <li className="nav-item dropdown">
-        <a className="nav-link dropdown-toggle" href="http://www.google.com.ar" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Categorias
-        </a>
-        <div className="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a className="dropdown-item" href="http://www.google.com.ar">Categoria 1</a>
-          <a className="dropdown-item" href="http://www.google.com.ar">Categoria 2</a>
-          <div className="dropdown-divider"></div>
-          <a className="dropdown-item" href="http://www.google.com.ar">Categoria 3</a>
-        </div>
-      </li>
+
 
     </ul>
     <form className="form-inline my-2 my-lg-0">
