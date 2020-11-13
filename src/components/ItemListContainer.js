@@ -1,6 +1,7 @@
 /*jshint esversion: 6 */
 import React, {useEffect, useState} from 'react';
 import ItemList from "./ItemList.js"
+import Spinner from "./Spinner.js";
 
 
 
@@ -14,7 +15,7 @@ const falsoLlamadoAServer = new Promise((res, rej) => {
 
   res(catalogo);
 
-  }, 3000);
+  }, 1000);
 
 
 });
@@ -34,9 +35,9 @@ const falsoLlamadoAServer = new Promise((res, rej) => {
   });
 
     return <>
-    <div>
+    <div style={{marginTop: "4rem"}}>
       <br></br>
-      {hidden && <div className="spinner-border text-primary" role="status" style={{position: "absolute", top: "50%"}}><span className="sr-only">Loading...</span></div> }
+      {hidden && <Spinner estilo={{position: "absolute", top: "50%"}}/>}
       {!hidden && <ItemList items={arrayDeItems}/>}
       
     

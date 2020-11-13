@@ -22,15 +22,16 @@
       .xl {color:red;font-weight:bold;}
   }
   
-  .card {
+  .card-n {
     transition: box-shadow .3s;
   }
 
-  .card:hover {
-    box-shadow: 0 0 11px rgba(33,33,33,.2); 
+  .card-n:hover {
+    box-shadow: 0 0 11px rgba(238, 237, 237, 0.9); 
   }
 
   .todo {
-    background-color: #7a6d76;
-    background-image: url("https://www.transparenttextures.com/patterns/brushed-alum.png");
-  }
+    background-color: #383738;
+    
+    
+  }/*background-image: url("/corchos.jpg");*/

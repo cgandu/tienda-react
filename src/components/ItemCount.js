@@ -35,8 +35,8 @@ function ItemCount({ stock, inicial = 1, msg = "Agregar al carrito", onAdd }) {
         <button
           onClick={() => onAdd(cantidad)}
           type="button"
-          className="btn btn-sm btn-outline-primary"
-          style={{ width: "10rem", marginTop: "5px" }}
+          className="btn btn-sm btn-info"
+          style={{ width: "10rem", marginTop: "5px", marginBottom: "5px" }}
         >
           {msg}
         </button>

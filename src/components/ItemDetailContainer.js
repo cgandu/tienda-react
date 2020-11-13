@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from "react";
 import {useParams} from "react-router-dom";
 import ItemDetail from "./ItemDetail.js";
+import Spinner from "./Spinner.js";
 
 
 function ItemDetailContainer({catalogo}){
@@ -16,7 +17,7 @@ function ItemDetailContainer({catalogo}){
             
             res(catalogo);
 
-        }, 3000);
+        }, 1000);
 
 
     });
@@ -31,17 +32,30 @@ function ItemDetailContainer({catalogo}){
       });
 
     return <>
+    <div style={{marginTop: "5rem"}}>
+      {hidden && <Spinner estilo={{position: "absolute", top: "50%"}}/>}
     <div className="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 row-cols-xl-5 justify-content-center" style={{marginTop: "2rem"}} >
     <div className="col mb-4">
       
-       {hidden && <div className="spinner-border float-center" style={{position: "relative", top: "50%"}} role="status"><span className="sr-only">Loading...</span></div> } 
-       {!hidden && <ItemDetail item={item}/>}
+      
+       {!hidden && <ItemDetail item={item}/> 
+  }
 
        </div>
-       <div style={{paddingTop: "2rem"}}>
+ {  !hidden &&    <div style={{marginTop: "2rem", color: "grey"}}>
 
-           {!hidden && item.desc}...
+       <p style={{fontSize: "1.25rem"}}>
+        
+        <ul style={{backgroundColor: "transparent"}} class="list-group list-group-flush">
+        <li style={{backgroundColor: "transparent"}} class="list-group-item">Angelica Zapata Malbec 750cc </li>
+        <li style={{backgroundColor: "transparent"}} class="list-group-item">Año: 2008</li>
+        <li style={{backgroundColor: "transparent"}} class="list-group-item">Presentacion: Caja x 6 unidades</li>
+        <li style={{backgroundColor: "transparent"}} class="list-group-item">Stock: disponible</li>
+        <li style={{backgroundColor: "transparent"}} class="list-group-item">Precio: $5400</li>
+        </ul> </p>
 
+
+       </div>}
        </div>
        </div>
 

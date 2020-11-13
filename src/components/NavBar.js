@@ -6,8 +6,15 @@ import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 
 
 const NavBar = function(){
-    return <nav className="navbar navbar-expand-lg navbar-dark bg-dark" >
-<Link to="/" style={{textDecoration: "none"}}><img src="LOGOMERCADITOGDE.jpg" style={{maxWidth: "100px", borderRadius: "100%"}} /></Link>
+
+
+    return <>
+
+
+    
+    
+    <nav className="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" >
+    <Link to="/" style={{textDecoration: "none"}}><img src="LOGOMERCADITOGDE.jpg" style={{maxHeight: "100px", borderRadius: "100%", position: "absolute", left: "0", top: "0"}} /></Link>
   <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span className="navbar-toggler-icon"></span>
   </button>
@@ -44,6 +51,7 @@ const NavBar = function(){
 
 
     </nav>
+    </>
 }
 
 export default NavBar;
