@@ -21,12 +21,3 @@ function ItemList({ items }) {
 
 export default ItemList;
 
-/*
-     <div class="card-deck">
-     <div className="row row-cols-2 row-cols-sm-3 row-cols-md-4 row-cols-lg-5 row-cols-xl- justify-content-center" style={{margin: "2px"}}>
-     {items.map((item, idx) => <div className="col mb-4"><Link style={{textDecoration: "none", color: "black"}} to={{pathname: `/item/${item.id}`}}><Item item={item} key={idx} /></Link></div> )}
-     </div>
-        
-     </div>
-
-*/

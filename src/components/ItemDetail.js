@@ -35,7 +35,7 @@ function ItemDetail({ item }) {
 
         {!hidden2 && (
           <>
-          <div class="alert alert-success" role="alert">
+          <div className="alert alert-success" role="alert">
            Agregaste {item.title} ({qAdded}) a tu carrito de compras
             </div>
                         <Link to="/">
