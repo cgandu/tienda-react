@@ -25,7 +25,7 @@ function ItemListContainer({ catalogo }) {
     <>
       <Carousel />
 
-      {hidden && <Spinner estilo={{ position: "absolute", top: "60%", left: "48%", width: "3rem", height: "3rem" }} />}
+      {hidden && <Spinner estilo={{ position: "absolute", top: "50%" }} />}
       {!hidden && <ItemList items={arrayDeItems} />}
     </>
   );

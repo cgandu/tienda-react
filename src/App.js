@@ -5,27 +5,30 @@ import NavBar from "./components/NavBar.js";
 import ItemListContainer from "./components/ItemListContainer.js";
 import Cart from "./components/Cart.js";
 import ItemDetailContainer from "./components/ItemDetailContainer.js";
+import CartProvider from "./components/CartContext.js";
 
 const catalogo = generoArrayDeItemsConDatosRandom(15);
 
 function App() {
   return (
     <div className="App">
-      <BrowserRouter>
-        <NavBar />
-        <Switch>
-          <Route exact path="/">
-            <ItemListContainer catalogo={catalogo} />
-          </Route>
-          <Route exact path="/cart">
-            <Cart />
-          </Route>
-          <Route exact path="/item/:id">
-            <ItemDetailContainer catalogo={catalogo} />
-          </Route>
-          <Route exact path="/categories/:categoryid"></Route>
-        </Switch>
-      </BrowserRouter>
+      <CartProvider>
+        <BrowserRouter>
+          <NavBar />
+          <Switch>
+            <Route exact path="/">
+              <ItemListContainer catalogo={catalogo} />
+            </Route>
+            <Route exact path="/cart">
+              <Cart />
+            </Route>
+            <Route exact path="/item/:id">
+              <ItemDetailContainer catalogo={catalogo} />
+            </Route>
+            <Route exact path="/categories/:categoryid"></Route>
+          </Switch>
+        </BrowserRouter>
+      </CartProvider>
     </div>
   );
 }

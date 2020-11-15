@@ -1,22 +1,21 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import CartWidget from "./CartWidget";
-import StoreIcon from "@material-ui/icons/Store";
 import AccountCircleIcon from "@material-ui/icons/AccountCircle";
+import CartWidget from "./CartWidget";
 
 const NavBar = function () {
   return (
     <>
       <nav className="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-      <Link to="/" style={{ textDecoration: "none" }}>
+        <Link to="/" style={{ textDecoration: "none" }}>
           <img
             src="LOGOMERCADITOGDE.jpg"
             style={{
               maxHeight: "100px",
-              borderRadius: "0%",
+              borderRadius: "100%",
               position: "absolute",
-              top: "0%"
-
+              left: "0",
+              top: "0"
             }}
           />
         </Link>
@@ -33,18 +32,6 @@ const NavBar = function () {
           <span className="navbar-toggler-icon"></span>
         </button>
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
-        <Link to="/" style={{ textDecoration: "none" }}>
-          <img
-            src="isologotipo-transparente.png"
-            style={{
-              maxHeight: "100px",
-              borderRadius: "0%",
-              position: "absolute",
-              top: "0%"
-
-            }}
-          />
-        </Link>
           <ul className="navbar-nav ml-auto">
             <li className="nav-item ml-auto">
               <a className="nav-link" href="http://www.google.com.ar">

@@ -1,4 +1,3 @@
-import { ViewCarousel } from "@material-ui/icons";
 import React from "react";
 
 function Carousel() {
@@ -27,25 +26,85 @@ function Carousel() {
               data-slide-to="2"
               style={{ height: "20px", width: "20px", borderRadius: "100%" }}
             ></li>
+                        <li
+              data-target="#carouselExampleIndicators"
+              data-slide-to="3"
+              style={{ height: "20px", width: "20px", borderRadius: "100%" }}
+            ></li>
+
           </ol>
           <div className="carousel-inner">
-            <div className="carousel-item active" style={{ height: "400px" }}>
+            <div
+              className="carousel-item active text-center"
+              style={{ height: "400px" }}
+            >
+              <h1
+                style={{
+                  position: "absolute",
+                  zIndex: "1",
+                  marginTop: "12rem",
+                  color: "white",
+                  width: "100%"
+                }}
+              >
+                ALGUNA PROMOCION
+              </h1>
+
               <img
-                className="d-block w-100"
-                src="/fondo-botellas-chico.jpg"
-                alt="First slide" objectFit="cover"
+                className="d-block"
+                src="/carousel1.jpg"
+                alt="First slide"
+                style={{ zIndex: "0" }}
               />
             </div>
             <div className="carousel-item" style={{ height: "400px" }}>
+              <h1
+                style={{
+                  position: "absolute",
+                  zIndex: "1",
+                  marginTop: "12rem",
+                  color: "white",
+                  width: "100%"
+                }}
+              >
+                OTRO CONTENIDO
+              </h1>
               <img
-                className="d-block w-100"
-                src="/cava-sanlucar.jpg"
-                alt="Second slide" objectFit="cover"
+                className="d-block"
+                src="/carousel2.jpg"
+                alt="Second slide"
               />
             </div>
             <div className="carousel-item" style={{ height: "400px" }}>
-              <img className="d-block w-100" src="/corchos.jpg" alt="Third slide" objectFit="cover" />
+              <h1
+                style={{
+                  position: "absolute",
+                  zIndex: "1",
+                  marginTop: "12rem",
+                  color: "white",
+                  width: "100%"
+                }}
+              >
+                CONTENIDOOOO
+              </h1>
+              <img className="d-block" src="/carousel3.jpg" alt="Third slide" />
             </div>
+            <div className="carousel-item" style={{ height: "400px" }}>
+              <h1
+                style={{
+                  position: "absolute",
+                  zIndex: "1",
+                  marginTop: "12rem",
+                  color: "white",
+                  width: "100%"
+                }}
+              >
+                algooooooooooo
+
+              </h1>
+              <img className="d-block" src="/carousel4.jpg" alt="Fourth slide" />
+            </div>
+
           </div>
         </div>
       </div>
