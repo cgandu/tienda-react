@@ -1,56 +1,34 @@
 /*jshint esversion: 6 */
-import React, {useEffect, useState} from 'react';
-import ItemList from "./ItemList.js"
+import React, { useEffect, useState } from "react";
+import ItemList from "./ItemList.js";
+import Spinner from "./Spinner.js";
+import Carousel from "./Carousel.js";
 
-
-
-
-function ItemListContainer({catalogo}){
-
-  
-const falsoLlamadoAServer = new Promise((res, rej) => {
-
-  setTimeout(() => {
-
-  res(catalogo);
-
-  }, 3000);
-
-
-});
-  
+function ItemListContainer({ catalogo }) {
+  const falsoLlamadoAServer = new Promise((res, rej) => {
+    setTimeout(() => {
+      res(catalogo);
+    }, 1000);
+  });
 
   const [arrayDeItems, setArrayDeItems] = useState([]);
   const [hidden, setHidden] = useState(true);
 
-
   useEffect(() => {
-    
     falsoLlamadoAServer.then((result) => {
-      setArrayDeItems(result)
+      setArrayDeItems(result);
       setHidden(false);
-    }); 
-  
+    });
   });
 
-    return <>
-    <div>
-      <br></br>
-      {hidden && <div className="spinner-border text-primary" role="status" style={{position: "absolute", top: "50%"}}><span className="sr-only">Loading...</span></div> }
-      {!hidden && <ItemList items={arrayDeItems}/>}
-      
-    
-    </div>  
-    
-    
+  return (
+    <>
+      <Carousel />
+
+      {hidden && <Spinner estilo={{ position: "absolute", top: "50%" }} />}
+      {!hidden && <ItemList items={arrayDeItems} />}
     </>
+  );
 }
 
-
 export default ItemListContainer;
-
-
-
-
-
-  
