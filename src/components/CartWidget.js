@@ -8,7 +8,13 @@ function CartWidget() {
   const [numItems, setNumItems] = useState();
 
   useEffect(() => {
-    setNumItems(cartItems.length);
+    let qTotal = 0;
+
+    cartItems.forEach((i) => {
+      qTotal += i.quantity;
+    });
+
+    setNumItems(qTotal);
   }, [cartItems]);
 
   return (
