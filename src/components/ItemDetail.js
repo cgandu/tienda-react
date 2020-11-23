@@ -29,7 +29,7 @@ function ItemDetail({ item }) {
         className="card"
         style={{ margin: "-1rem 2rem 2rem 2rem", maxHeight: "16rem" }}
       >
-        {!hidden && <ItemCount stock={20} onAdd={onQAdded} />}
+        {!hidden && <ItemCount stock={item.stock} onAdd={onQAdded} />}
       </div>
 
       {hidden && hidden2 && <Spinner />}

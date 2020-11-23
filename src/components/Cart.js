@@ -7,6 +7,19 @@ import DeleteSweepIcon from "@material-ui/icons/DeleteSweep";
 
 function Cart() {
   const { cartItems, removeItemFromCart, clearCart } = useContext(CartContext);
+
+  function createOrder() {
+    const newOrder = {
+        buyer: { name: 'Poli', phone: '+541143432323', email: 'asd@asd' },
+        items: [
+            { id: '1', title: 'zapas', price: 200, quantity: 2 },
+            { id: '2', title: 'gorro', price: 100, quantity: 1 },
+        ],
+        total: 500,
+    };
+}
+
+
   let total = 0;
   cartItems.forEach((e) => {
     total += e.item.price * e.quantity;

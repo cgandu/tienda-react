@@ -34,24 +34,25 @@ const NavBar = function () {
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav ml-auto">
             <li className="nav-item ml-auto">
-              <a className="nav-link" href="http://www.google.com.ar">
+            <Link to={{ pathname: `/categories/ofertas` }} className="nav-link" style={{ textDecoration: "none" }}>
+              
                 Ofertas
-              </a>
+            </Link>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="http://www.google.com.ar">
+            <Link to={{ pathname: `/categories/estuches` }} className="nav-link" style={{ textDecoration: "none" }}>
                 Estuches
-              </a>
+              </Link>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="http://www.google.com.ar">
+            <Link to={{ pathname: `/` }} className="nav-link" style={{ textDecoration: "none" }}>
                 Catalogo
-              </a>
+              </Link>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="http://www.google.com.ar">
+            <Link to={{ pathname: `/` }} className="nav-link" style={{ textDecoration: "none" }}>
                 Contactanos
-              </a>
+              </Link>
             </li>
           </ul>
           <form className="form-inline my-2 my-lg-0">

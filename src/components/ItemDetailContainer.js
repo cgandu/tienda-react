@@ -1,26 +1,44 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
+import {getFirestore} from "../firebase";
 import ItemDetail from "./ItemDetail.js";
 import Spinner from "./Spinner.js";
 
-function ItemDetailContainer({ catalogo }) {
+function ItemDetailContainer() {
   const [hidden, setHidden] = useState(true);
   const [item, setItem] = useState({});
 
   const { id } = useParams();
 
-  const falsoLlamadoAServer = new Promise((res, rej) => {
-    setTimeout(() => {
-      res(catalogo);
-    }, 1000);
-  });
+  
+
 
   useEffect(() => {
-    falsoLlamadoAServer.then((result) => {
+
+    const db = getFirestore();
+    const itemCollection = db.collection("items");
+    const it = itemCollection.doc(id);
+  
+    it.get().then((doc) => {
+      if (!doc.exists) {
+        
+        console.log("Item id does not exist");
+        return ;
+      }
       setHidden(false);
-      setItem(result[id]);
+      setItem({id: doc.id, ...doc.data()});
+      
+      
+
+  
+    }).catch((err) => {
+      console.log(err)
+    }).finally(() => {
+      console.log("Esto se ejecuta igual haya o no error");
+      
     });
-  });
+   
+  }, []);
 
   return (
     <>
@@ -43,7 +61,7 @@ function ItemDetailContainer({ catalogo }) {
                   style={{ backgroundColor: "transparent" }}
                   className="list-group-item"
                 >
-                  {item.title}{" "}
+                  {item.title} {item.volumen}
                 </li>
                 <li
                   style={{ backgroundColor: "transparent" }}
@@ -55,19 +73,25 @@ function ItemDetailContainer({ catalogo }) {
                   style={{ backgroundColor: "transparent" }}
                   className="list-group-item"
                 >
-                  Presentacion: Caja x 6 unidades
+                  Cepa: {item.cepa}
                 </li>
                 <li
                   style={{ backgroundColor: "transparent" }}
                   className="list-group-item"
                 >
-                  Stock: disponible
+                  {item.desc}
                 </li>
                 <li
                   style={{ backgroundColor: "transparent" }}
                   className="list-group-item"
                 >
-                  Precio: $5400
+                  Stock: {item.stock}
+                </li>
+                <li
+                  style={{ backgroundColor: "transparent" }}
+                  className="list-group-item"
+                >
+                  Precio: ${item.price}
                 </li>
               </ul>
             </div>
