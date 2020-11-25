@@ -1,24 +1,13 @@
-import React, { useContext } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import Alerta from "./Alerta.js";
 import { CartContext } from "./CartContext.js";
+import CreateOrder from "./CreateOrder.js";
 import Fab from "@material-ui/core/Fab";
 import HighlightOffIcon from "@material-ui/icons/HighlightOff";
 import DeleteSweepIcon from "@material-ui/icons/DeleteSweep";
 
 function Cart() {
   const { cartItems, removeItemFromCart, clearCart } = useContext(CartContext);
-
-  function createOrder() {
-    const newOrder = {
-        buyer: { name: 'Poli', phone: '+541143432323', email: 'asd@asd' },
-        items: [
-            { id: '1', title: 'zapas', price: 200, quantity: 2 },
-            { id: '2', title: 'gorro', price: 100, quantity: 1 },
-        ],
-        total: 500,
-    };
-}
-
 
   let total = 0;
   cartItems.forEach((e) => {
@@ -90,6 +79,12 @@ function Cart() {
       <Fab title="Vaciar el carrito" onClick={() => clearCart()}>
         <DeleteSweepIcon />
       </Fab>
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <CreateOrder />
     </>
   );
 }
