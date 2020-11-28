@@ -71,11 +71,12 @@ function CreateOrder() {
 
   return (
     <>
+  <div style={{textAlign: "-webkit-center"}}>
       <div
         style={{
           backgroundColor: "white",
-          margin: "5%",
-          padding: "3%",
+          maxWidth: "80%",
+          padding: "3%"
         }}
       >
         <form>
@@ -120,6 +121,7 @@ function CreateOrder() {
             Continuar compra
           </button>
         </form>
+      </div>
       </div>
     </>
   );

@@ -14,7 +14,7 @@ function CartTable() {
     <>
       <table
         className="table table-hover justify-content-center"
-        style={{ marginTop: "10rem", maxWidth: "90%", background: "white" }}
+        style={{ marginTop: "10rem", maxWidth: "80%", background: "white" }}
       >
         <thead>
           <tr>

@@ -19,7 +19,7 @@ function ItemDetail({ item }) {
     setTimeout(() => {
       setHidden2(false);
       addItemToCart(item, q);
-    }, 2000);
+    }, 500);
   }
 
   return (

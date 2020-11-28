@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/alt-text */
 import React from "react";
 import { Link } from "react-router-dom";
 import AccountCircleIcon from "@material-ui/icons/AccountCircle";
@@ -33,7 +34,7 @@ const NavBar = function () {
         </button>
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav ml-auto">
-            <li className="nav-item ml-auto">
+            <li className="nav-item">
             <Link to={{ pathname: `/categories/ofertas` }} className="nav-link" style={{ textDecoration: "none" }}>
               
                 Ofertas
@@ -55,7 +56,7 @@ const NavBar = function () {
               </Link>
             </li>
           </ul>
-          <form className="form-inline my-2 my-lg-0">
+          <form className="form" style={{margin: "0.5rem"}}>
             <input
               className="form-control mr-sm-2"
               type="search"

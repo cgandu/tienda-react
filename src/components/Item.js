@@ -2,7 +2,7 @@ import React from "react";
 
 import StarRating from "./StarRating.js";
 
-function Item({ item }, listado) {
+function Item({ item }) {
   // Desarrolla la vista de un ítem donde item es de tipo
   // { id, title, price, pictureUrl ...}
 
@@ -12,7 +12,7 @@ function Item({ item }, listado) {
         className="card card-n"
         style={{ margin: "2rem 2rem", maxHeight: "16rem" }}
       >
-      <div style={{backgroundColor: "#8B0000", color: "white", position: "absolute", zIndex: "1000", width: "100%", display: item.oferta ? "initial" : "none"}}>LIQUIDACION</div>
+      <div style={{backgroundColor: "#8B0000", color: "white", position: "absolute", zIndex: "1000", top: "00%", width: "100%", display: item.oferta ? "initial" : "none"}}>LIQUIDACION</div>
         <img
           src={"/" + item.pictureName}
           className="card-img-top"

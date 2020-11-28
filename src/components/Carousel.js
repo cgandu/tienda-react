@@ -3,7 +3,7 @@ import React from "react";
 function Carousel() {
   return (
     <>
-      <div style={{ height: "400px" }}>
+      <div>
         <div
           id="carouselExampleIndicators"
           className="carousel slide"
