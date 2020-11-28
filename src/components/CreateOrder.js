@@ -24,10 +24,10 @@ function CreateOrder() {
       id: e.item.id,
       title: e.item.title,
       price: e.item.price,
-      quantity: e.quantity
+      quantity: e.quantity,
     })),
     date: firebase.firestore.Timestamp.fromDate(new Date()),
-    total: total
+    total: total,
   };
 
   async function processOrder() {
@@ -37,7 +37,7 @@ function CreateOrder() {
 
       alert("Order crated: " + doc.id);
       clearCart();
-      // update stock
+      // updates stock
       const itemQueryByManyId = await db
         .collection("items")
         .where(
@@ -47,12 +47,11 @@ function CreateOrder() {
         )
         .get();
 
-      //como en el slide y parece funcionar
-      //, pero que me garantiza que el filtro del query
-      //devuelva siempre en mismo orden q cart???
       itemQueryByManyId.docs.forEach((doc, idx) => {
+        const itemComprado = cartItems.find((e) => e.item.id === doc.id);
+
         batch.update(doc.ref, {
-          stock: doc.data().stock - cartItems[idx].quantity
+          stock: doc.data().stock - itemComprado.quantity,
         });
       });
       await batch.commit();
@@ -66,7 +65,7 @@ function CreateOrder() {
     const { name, value } = evt.target;
     setBuyer((prevBuyer) => ({
       ...prevBuyer,
-      [name]: value
+      [name]: value,
     }));
   }
 
@@ -76,7 +75,7 @@ function CreateOrder() {
         style={{
           backgroundColor: "white",
           margin: "5%",
-          padding: "3%"
+          padding: "3%",
         }}
       >
         <form>

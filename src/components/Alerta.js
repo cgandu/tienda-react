@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-function Alerta({ infoPrimary, infoSecondary, destino}) {
+function Alerta({ h1, h2, to}) {
   return (
     <>
       <div
@@ -13,9 +13,9 @@ function Alerta({ infoPrimary, infoSecondary, destino}) {
           zIndex: "1000"
         }}
       >
-        <strong>{infoPrimary}</strong> <hr />
-        {infoSecondary} haciendo click
-        <Link to={{ pathname: destino }} style={{ textDecoration: "none" }}>
+        <strong>{h1}</strong> <hr />
+        {h2} haciendo click
+        <Link to={{ pathname: to }} style={{ textDecoration: "none" }}>
           {" "}
           acá
         </Link>
