@@ -53,3 +53,7 @@
 .card-n2:hover {
   color: "grey";
 }
+
+.row {
+  margin-right: 0;
+}
