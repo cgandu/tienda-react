@@ -32,11 +32,11 @@ function CreateOrder() {
 
   const newOrder = {
     buyer: buyer,
-    items: cartItems.map((e) => ({
-      id: e.item.id,
-      title: e.item.title,
-      price: e.item.price,
-      quantity: e.quantity
+    items: cartItems.map(({item: {id, title, price}, quantity}) => ({
+      id: id,
+      title: title,
+      price: price,
+      quantity: quantity
     })),
     date: firebase.firestore.Timestamp.fromDate(new Date()),
     total: total
@@ -56,12 +56,12 @@ function CreateOrder() {
         .where(
           firebase.firestore.FieldPath.documentId(),
           "in",
-          cartItems.map((e) => e.item.id)
+          cartItems.map(({item: {id}}) => id)
         )
         .get();
 
       itemQueryByManyId.docs.forEach((doc, idx) => {
-        const itemComprado = cartItems.find((e) => e.item.id === doc.id);
+        const itemComprado = cartItems.find(({item: {id}}) => id === doc.id);
 
         batch.update(doc.ref, {
           stock: doc.data().stock - itemComprado.quantity

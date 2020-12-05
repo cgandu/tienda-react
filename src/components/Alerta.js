@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-function Alerta({ h1, h2, to}) {
+function Alerta({info: {h1, h2, to}}) {
   return (
     <>
 

@@ -1,11 +1,10 @@
 import React, { useContext, useState, useEffect } from "react";
 import Alerta from "./Alerta.js";
-import CartTable from "./CartTable.js";
+import CartDetail from "./CartDetail.js";
 import { CartContext } from "./CartContext.js";
 import CreateOrder from "./CreateOrder.js";
 import ShoppingCartOutlinedIcon from "@material-ui/icons/ShoppingCartOutlined";
-import Fab from "@material-ui/core/Fab";
-import DeleteSweepIcon from "@material-ui/icons/DeleteSweep";
+
 
 const style={
   textAlign: "center",
@@ -15,14 +14,17 @@ const style={
   marginBottom: "20px"
 }
 
-const h1 = "¡Caramba! Parece que su carrito de compras esta vacío.";
-const h2 = "Agregue productos a su carrito desde nuestro catalogo";
-const to = "/";
+const alertaVacio = {
+  h1: "¡Caramba! Parece que su carrito de compras esta vacío.",
+  h2: "Agregue productos a su carrito desde nuestro catalogo",
+  to: "/"
+}
+
 
 function Cart() {
   const [hidden, setHidden] = useState(true);
 
-  const { clearCart, cartItems } = useContext(CartContext);
+  const { cartItems } = useContext(CartContext);
 
   useEffect(() => {
     if (cartItems.length === 0) {
@@ -34,13 +36,12 @@ function Cart() {
     <>
       {cartItems.length !== 0 ? (
         <>
-          <div className="row justify-content-center align-items-center">
-            <CartTable onContinue={(a) => console.log(a)} />
-          </div>
-          <Fab title="Vaciar el carrito" onClick={() => clearCart()}>
-            <DeleteSweepIcon />
-          </Fab>
-          <div className="justify-content-center align-items-center" style={style}>
+          <CartDetail />
+
+          <div
+            className="justify-content-center align-items-center"
+            style={style}
+          >
             <a href="#form-buyer">
               <button
                 onClick={() => setHidden(!hidden)}
@@ -54,7 +55,7 @@ function Cart() {
         </>
       ) : (
         <div className="row justify-content-center align-items-center">
-          <Alerta h1={h1} h2={h2} to={to} />
+          <Alerta info={alertaVacio} />
         </div>
       )}
 

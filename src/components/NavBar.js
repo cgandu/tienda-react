@@ -5,6 +5,17 @@ import AccountCircleIcon from "@material-ui/icons/AccountCircle";
 import CartWidget from "./CartWidget";
 
 const NavBar = function () {
+
+
+  const categoriasNavBar = [
+    [{ pathname: `/categories/ofertas` }, "Ofertas"],
+    [{ pathname: `/categories/estuches` }, "Estuches"],
+    [{ pathname: `/categories/limitados` }, "Ediciones limitadas"],
+    [{ pathname: `/` }, "Catalogo completo"],
+  ];
+
+ 
+
   return (
     <>
       <nav className="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
@@ -16,7 +27,7 @@ const NavBar = function () {
               borderRadius: "100%",
               position: "absolute",
               left: "0",
-              top: "0"
+              top: "0",
             }}
           />
         </Link>
@@ -34,36 +45,41 @@ const NavBar = function () {
         </button>
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav ml-auto">
-            <li className="nav-item">
-            <Link to={{ pathname: `/categories/ofertas` }} className="nav-link" style={{ textDecoration: "none" }}>
-              
-                Ofertas
-            </Link>
-            </li>
-            <li className="nav-item">
-            <Link to={{ pathname: `/categories/estuches` }} className="nav-link" style={{ textDecoration: "none" }}>
-                Estuches
-              </Link>
-            </li>
-            <li className="nav-item">
-            <Link to={{ pathname: `/` }} className="nav-link" style={{ textDecoration: "none" }}>
-                Catalogo
-              </Link>
-            </li>
-            <li className="nav-item">
-            <Link to={{ pathname: `/` }} className="nav-link" style={{ textDecoration: "none" }}>
-                Contactanos
-              </Link>
-            </li>
+            {categoriasNavBar.map(([ruta, categoria]) => (
+              <li className="nav-item">
+                <Link
+                  to={ruta}
+                  className="nav-link"
+                  style={{ textDecoration: "none" }}
+                >
+                  {categoria}
+                </Link>
+              </li>
+            ))}
           </ul>
-          <form className="form" style={{margin: "0.5rem"}}>
+          {/* <form className="form" style={{ margin: "0.5rem" }}>
             <input
               className="form-control mr-sm-2"
               type="search"
               placeholder="Buscar"
               aria-label="Search"
             />
-          </form>
+          </form> */}
+          {/* <form>
+          <div class="form-group col-md-12 mb-md-0 mb-sm-1" >
+
+                    <select
+                      name="bodega"
+                      class="form-control"
+                      // value={buyer.address.province}
+                      // onChange={handleChange}
+                    >
+                      <option selected>Bodegas...</option>
+                      <option>Luigi Bosca</option>
+                      <option>Escorihuela Gascon</option>
+                    </select>
+                  </div>
+          </form> */}
           <button type="button" className="btn btn-sm btn-light">
             <Link to="/cart">
               <CartWidget />

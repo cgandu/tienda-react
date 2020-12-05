@@ -1,41 +1,35 @@
 import React from "react";
 
-function Carousel() {
-  return (
-    <>
-      <div>
-        <div
-          id="carouselExampleIndicators"
-          className="carousel slide"
-          data-ride="carousel"
-        >
-          <ol className="carousel-indicators">
+function Carousel({ carouselItems }) {
+  function Indicators() {
+    return (
+      <>
+        <ol className="carousel-indicators">
+          {carouselItems.map((e, idx) => (
             <li
-              data-target="#carouselExampleIndicators"
-              data-slide-to="0"
+              key={idx}
+              data-target="#carouselLanding"
+              data-slide-to={idx}
               className="active"
               style={{ height: "20px", width: "20px", borderRadius: "100%" }}
             ></li>
-            <li
-              data-target="#carouselExampleIndicators"
-              data-slide-to="1"
-              style={{ height: "20px", width: "20px", borderRadius: "100%" }}
-            ></li>
-            <li
-              data-target="#carouselExampleIndicators"
-              data-slide-to="2"
-              style={{ height: "20px", width: "20px", borderRadius: "100%" }}
-            ></li>
-                        <li
-              data-target="#carouselExampleIndicators"
-              data-slide-to="3"
-              style={{ height: "20px", width: "20px", borderRadius: "100%" }}
-            ></li>
+          ))}
+        </ol>
+      </>
+    );
+  }
 
-          </ol>
-          <div className="carousel-inner">
+  function Slides() {
+    return (
+      <>
+        <div className="carousel-inner">
+          {carouselItems.map((item, idx) => (
             <div
-              className="carousel-item active text-center"
+              key={idx}
+              className={
+                (idx === 0 && `carousel-item active text-center`) ||
+                (idx !== 0 && `carousel-item`)
+              }
               style={{ height: "400px" }}
             >
               <h1
@@ -44,68 +38,35 @@ function Carousel() {
                   zIndex: "1",
                   marginTop: "12rem",
                   color: "white",
-                  width: "100%"
+                  width: "100%",
                 }}
               >
-                ALGUNA PROMOCION
+                {item.texto}
               </h1>
 
               <img
                 className="d-block"
-                src="/carousel1.jpg"
-                alt="First slide"
+                src={item.foto}
+                alt="Slide"
                 style={{ zIndex: "0" }}
               />
             </div>
-            <div className="carousel-item" style={{ height: "400px" }}>
-              <h1
-                style={{
-                  position: "absolute",
-                  zIndex: "1",
-                  marginTop: "12rem",
-                  color: "white",
-                  width: "100%"
-                }}
-              >
-                OTRO CONTENIDO
-              </h1>
-              <img
-                className="d-block"
-                src="/carousel2.jpg"
-                alt="Second slide"
-              />
-            </div>
-            <div className="carousel-item" style={{ height: "400px" }}>
-              <h1
-                style={{
-                  position: "absolute",
-                  zIndex: "1",
-                  marginTop: "12rem",
-                  color: "white",
-                  width: "100%"
-                }}
-              >
-                CONTENIDOOOO
-              </h1>
-              <img className="d-block" src="/carousel3.jpg" alt="Third slide" />
-            </div>
-            <div className="carousel-item" style={{ height: "400px" }}>
-              <h1
-                style={{
-                  position: "absolute",
-                  zIndex: "1",
-                  marginTop: "12rem",
-                  color: "white",
-                  width: "100%"
-                }}
-              >
-                algooooooooooo
+          ))}
+        </div>
+      </>
+    );
+  }
 
-              </h1>
-              <img className="d-block" src="/carousel4.jpg" alt="Fourth slide" />
-            </div>
-
-          </div>
+  return (
+    <>
+      <div>
+        <div
+          id="carouselLanding"
+          className="carousel slide"
+          data-ride="carousel"
+        >
+          <Indicators />
+          <Slides />
         </div>
       </div>
     </>

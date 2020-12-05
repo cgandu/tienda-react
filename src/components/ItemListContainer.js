@@ -52,11 +52,17 @@ function ItemListContainer() {
 
   }, [categoryid]);
 
+  const carouselItems = [
+    { foto: "/carousel1.jpg", texto: "PROMO" },
+    { foto: "/carousel2.jpg", texto: "MENSAJE" },
+    { foto: "/carousel3.jpg", texto: "TITULO" },
+    { foto: "/carousel4.jpg", texto: "ATENCION" }
+  ];
 
 
   return (
     <>
-      <Carousel />
+      <Carousel carouselItems={carouselItems} />
 
       {hidden && <Spinner estilo={{ position: "absolute", top: "50%" }} />}
       {!hidden && <ItemList items={arrayDeItems} />}

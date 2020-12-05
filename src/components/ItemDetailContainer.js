@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import {getFirestore} from "../firebase";
+import { getFirestore } from "../firebase";
 import ItemDetail from "./ItemDetail.js";
 import Spinner from "./Spinner.js";
 
@@ -10,35 +10,30 @@ function ItemDetailContainer() {
 
   const { id } = useParams();
 
-  
-
-
   useEffect(() => {
-
     const db = getFirestore();
     const itemCollection = db.collection("items");
     const it = itemCollection.doc(id);
-  
-    it.get().then((doc) => {
-      if (!doc.exists) {
-        
-        console.log("Item id does not exist");
-        return ;
-      }
-      setHidden(false);
-      setItem({id: doc.id, ...doc.data()});
-      
-      
 
-  
-    }).catch((err) => {
-      console.log(err)
-    }).finally(() => {
-      console.log("Esto se ejecuta igual haya o no error");
-      
-    });
-   
+    it.get()
+      .then((doc) => {
+        if (!doc.exists) {
+          console.log("Item id does not exist");
+          return;
+        }
+        setHidden(false);
+        setItem({ id: doc.id, ...doc.data() });
+      })
+      .catch((err) => {
+        console.log(err);
+      })
+      .finally(() => {
+        console.log("Esto se ejecuta igual haya o no error");
+      });
   }, []);
+
+  const { title, volumen, ano, cepa, desc, price } = item;
+  const arrayDetalles = [title, volumen, ano, cepa, desc, price];
 
   return (
     <>
@@ -57,42 +52,14 @@ function ItemDetailContainer() {
                 style={{ backgroundColor: "transparent" }}
                 className="list-group list-group-flush"
               >
-                <li
-                  style={{ backgroundColor: "transparent" }}
-                  className="list-group-item"
-                >
-                  {item.title} {item.volumen}
-                </li>
-                <li
-                  style={{ backgroundColor: "transparent" }}
-                  className="list-group-item"
-                >
-                  Año: {item.ano}
-                </li>
-                <li
-                  style={{ backgroundColor: "transparent" }}
-                  className="list-group-item"
-                >
-                  Cepa: {item.cepa}
-                </li>
-                <li
-                  style={{ backgroundColor: "transparent" }}
-                  className="list-group-item"
-                >
-                  {item.desc}
-                </li>
-                <li
-                  style={{ backgroundColor: "transparent" }}
-                  className="list-group-item"
-                >
-                  Stock: {item.stock}
-                </li>
-                <li
-                  style={{ backgroundColor: "transparent" }}
-                  className="list-group-item"
-                >
-                  Precio: ${item.price}
-                </li>
+                {arrayDetalles.map((e) => (
+                  <li
+                    style={{ backgroundColor: "transparent" }}
+                    className="list-group-item"
+                  >
+                    {e === price ? `$${e}` : e}
+                  </li>
+                ))}
               </ul>
             </div>
           )}
