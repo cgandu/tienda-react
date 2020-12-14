@@ -32,7 +32,7 @@ function CartDetail() {
           <tbody>
             {cartItems.map(({ item: { title, price, id }, quantity }, idx) => (
               <tr key={idx}>
-                <td scope="row">{idx + 1}</td>
+                <td>{idx + 1}</td>
                 <td>{title}</td>
                 <td>${price}</td>
                 <td>({quantity})</td>

@@ -28,9 +28,9 @@ function ItemDetailContainer() {
         console.log(err);
       })
       .finally(() => {
-        console.log("Esto se ejecuta igual haya o no error");
+        
       });
-  }, []);
+  });
 
   const { title, volumen, ano, cepa, desc, price } = item;
   const arrayDetalles = [title, volumen, ano, cepa, desc, price];

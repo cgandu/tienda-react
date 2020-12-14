@@ -10,8 +10,7 @@ const NavBar = function () {
   const categoriasNavBar = [
     [{ pathname: `/categories/ofertas` }, "Ofertas"],
     [{ pathname: `/categories/estuches` }, "Estuches"],
-    [{ pathname: `/categories/limitados` }, "Ediciones limitadas"],
-    [{ pathname: `/` }, "Catalogo completo"],
+    [{ pathname: `/` }, "Catalogo completo"]
   ];
 
  
@@ -57,29 +56,7 @@ const NavBar = function () {
               </li>
             ))}
           </ul>
-          {/* <form className="form" style={{ margin: "0.5rem" }}>
-            <input
-              className="form-control mr-sm-2"
-              type="search"
-              placeholder="Buscar"
-              aria-label="Search"
-            />
-          </form> */}
-          {/* <form>
-          <div class="form-group col-md-12 mb-md-0 mb-sm-1" >
 
-                    <select
-                      name="bodega"
-                      class="form-control"
-                      // value={buyer.address.province}
-                      // onChange={handleChange}
-                    >
-                      <option selected>Bodegas...</option>
-                      <option>Luigi Bosca</option>
-                      <option>Escorihuela Gascon</option>
-                    </select>
-                  </div>
-          </form> */}
           <button type="button" className="btn btn-sm btn-light">
             <Link to="/cart">
               <CartWidget />

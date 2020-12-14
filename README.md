@@ -1,68 +1,54 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Mercadito E-commerce
 
-## Available Scripts
+Proyecto de e-commerce, desarrollado con React 16.14.0 a partir de curso 7125 de React Js
 
-In the project directory, you can run:
 
-### `npm start`
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Estado del proyecto
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+El pryecto se encuentra en desarrollo, ya que se busca añadir features que escapan al contenido del curso por el cual se desarrollo este proyecto, y su inclusion en esta etapa complejizaria la correccion del mismo.
 
-### `npm test`
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
+## Instalacion
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Clonar este repositorio. Sera necesario tener `node` y `npm` instalados.
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+Instalacion:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+`npm install`
 
-### `npm run eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+Iniciar servidor
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+`npm start`
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+Ver proyecto
 
-## Learn More
+`http://localhost:3000/`
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Dependencias
 
-### Code Splitting
+```
+"@material-ui/core": "^4.11.0",
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+"@material-ui/icons": "^4.9.1",
 
-### Analyzing the Bundle Size
+"@testing-library/jest-dom": "^4.2.4",
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+"@testing-library/react": "^9.5.0",
 
-### Making a Progressive Web App
+"@testing-library/user-event": "^7.2.1",
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
+"firebase": "^7.2.3",
 
-### Advanced Configuration
+"react": "^16.14.0",
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
+"react-dom": "^16.14.0",
 
-### Deployment
+"react-router-dom": "^5.2.0",
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+"react-scripts": "3.4.3"
+```

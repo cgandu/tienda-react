@@ -18,7 +18,7 @@ function CreateOrder() {
       postalCode: ""
     }
   });
-  const [orderId, setOrderId] = useState("");
+
   const { cartItems, clearCart } = useContext(CartContext);
 
   let total = 0;
@@ -45,12 +45,11 @@ function CreateOrder() {
   async function processOrder() {
     try {
       const doc = await orders.add(newOrder);
-      console.log("order created with id: ", doc.id);
-      setOrderId(doc.id);
-      alert("Order created: " + doc.id);
-      alert("redirigir a sitio de pago");
+      alert("Order created with id: " + doc.id);
+      alert("Redirigir a sitio de pago");
       clearCart();
-      // updates stock
+      
+      // actualiza stock de items
       const itemQueryByManyId = await db
         .collection("items")
         .where(
@@ -68,6 +67,7 @@ function CreateOrder() {
         });
       });
       await batch.commit();
+      
     } catch (err) {
       console.log(err);
     }

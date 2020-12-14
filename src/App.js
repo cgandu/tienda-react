@@ -1,6 +1,5 @@
 import React from "react";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
-import {getFirestore} from "./firebase";
 import "./App.css";
 import NavBar from "./components/NavBar.js";
 import ItemListContainer from "./components/ItemListContainer.js";

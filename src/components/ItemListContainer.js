@@ -46,7 +46,7 @@ function ItemListContainer() {
     }).catch((err) => {
       console.log(err);
     }).finally(() => {
-      console.log("esto se ejecuta sin importar si hubo error o no");
+      
       setHidden(false);
     })
 
