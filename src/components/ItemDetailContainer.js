@@ -30,7 +30,7 @@ function ItemDetailContainer() {
       .finally(() => {
         
       });
-  });
+  }, []);
 
   const { title, volumen, ano, cepa, desc, price } = item;
   const arrayDetalles = [title, volumen, ano, cepa, desc, price];
@@ -52,8 +52,9 @@ function ItemDetailContainer() {
                 style={{ backgroundColor: "transparent" }}
                 className="list-group list-group-flush"
               >
-                {arrayDetalles.map((e) => (
+                {arrayDetalles.map((e, idx) => (
                   <li
+                    key={idx}
                     style={{ backgroundColor: "transparent" }}
                     className="list-group-item"
                   >

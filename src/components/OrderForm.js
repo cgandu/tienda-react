@@ -74,35 +74,35 @@ function OrderForm({ buyer, handleChange, processOrder }) {
                     placeholder="Piso, departamento, puerta..."
                   />
                 </div>
-                <div class="form-row col-md-12">
-                  <div class="form-group col-md-5">
+                <div className="form-row col-md-12">
+                  <div className="form-group col-md-5">
                     <label htmlFor="inputCity">Ciudad - Localidad</label>
                     <input
                       type="text"
-                      class="form-control"
+                      className="form-control"
                       name="city"
                       value={buyer.address.city}
                       onChange={handleChange}
                     />
                   </div>
-                  <div class="form-group col-md-4">
-                    <label for="inputState">Provincia</label>
+                  <div className="form-group col-md-4">
+                    <label htmlFor="inputState">Provincia</label>
                     <select
                       name="province"
-                      class="form-control"
+                      className="form-control"
                       value={buyer.address.province}
                       onChange={handleChange}
                     >
-                      <option selected>Seleccionar...</option>
+                      <option>Seleccionar...</option>
                       <option>Ciudad Autonoma de Buenos Aires</option>
                       <option>Provincia de Buenos Aires</option>
                     </select>
                   </div>
-                  <div class="form-group col-md-3">
-                    <label for="inputZip">Codigo Postal</label>
+                  <div className="form-group col-md-3">
+                    <label htmlFor="inputZip">Codigo Postal</label>
                     <input
                       type="text"
-                      class="form-control"
+                      className="form-control"
                       name="postalCode"
                       value={buyer.address.postalCode}
                       onChange={handleChange}

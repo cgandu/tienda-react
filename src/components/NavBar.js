@@ -44,8 +44,8 @@ const NavBar = function () {
         </button>
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav ml-auto">
-            {categoriasNavBar.map(([ruta, categoria]) => (
-              <li className="nav-item">
+            {categoriasNavBar.map(([ruta, categoria], idx) => (
+              <li key={idx} className="nav-item">
                 <Link
                   to={ruta}
                   className="nav-link"
