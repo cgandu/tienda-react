@@ -30,7 +30,7 @@ function Cart() {
     if (cartItems.length === 0) {
       setHidden(true);
     }
-  }, [cartItems.length]);
+  });
 
   return (
     <>

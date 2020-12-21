@@ -1,6 +1,26 @@
-import React from "react";
+import React, {useState} from "react";
+import MensajeValidacion from "./MensajeValidacion.js";
 
 function OrderForm({ buyer, handleChange, processOrder }) {
+
+
+const [confirmedEmail, setConfirmedEmail] = useState("");
+
+function handleConfirmEmailChange({target: {value}}){
+
+setConfirmedEmail(value);
+
+}
+
+function handleSubmit(evt) {
+  evt.preventDefault();
+  if (buyer.email === confirmedEmail){
+    processOrder();
+  }
+
+}
+
+
   return (
     <>
       <div style={{ textAlign: "-webkit-center" }}>
@@ -11,23 +31,24 @@ function OrderForm({ buyer, handleChange, processOrder }) {
             padding: "3%"
           }}
         >
-          <form id="form-buyer">
+          <form id="form-buyer" onSubmit={handleSubmit}>
             <div className="form-group">
+            <div className="form-row">
+            <div className="form-group col-md-6">
               <label htmlFor="inputName">Nombre y apellido</label>
               <input
+                required
                 value={buyer.name}
                 onChange={handleChange}
                 type="text"
                 className="form-control"
                 name="name"
                 placeholder="Mi nombre y apellido"
-              />
-            </div>
-            <div className="form-group">
-              <div className="form-row">
-                <div className="form-group col-md-6">
+              /></div>
+                              <div className="form-group col-md-6">
                   <label htmlFor="inputPhone">Telefono</label>
                   <input
+                    required
                     value={buyer.phone}
                     onChange={handleChange}
                     type="tel"
@@ -36,24 +57,47 @@ function OrderForm({ buyer, handleChange, processOrder }) {
                     placeholder="+54 9 112345 6789"
                   />
                 </div>
+            </div>
+            </div>
+            <div className="form-group">
+              <div className="form-row">
                 <div className="form-group col-md-6">
-                  <label htmlFor="inputPhone">Email</label>
+                  <label htmlFor="inputEmail">E-mail</label>
                   <input
+                    required
                     value={buyer.email}
                     onChange={handleChange}
                     type="email"
                     className="form-control"
                     name="email"
                     placeholder="micorreo@email.com"
+                    
                   />
                 </div>
+
+                <div className="form-group col-md-6">
+                  <label htmlFor="inputConfirmEmail">Confirmar E-mail</label>
+                  <input
+                    required
+                    type="email"
+                    defaultValue={confirmedEmail}
+                    onChange={handleConfirmEmailChange}
+                    className="form-control"
+                    name="confirmaEmail"
+                    placeholder="micorreo@email.com"
+                    
+                  />
+                </div>
+
               </div>
+              <MensajeValidacion e1={buyer.email} e2={confirmedEmail}/>
             </div>
             <div className="form-group">
               <div className="form-row">
                 <div className="form-group col-md-12">
-                  <label htmlFor="inputName">Domicilio (primera linea)</label>
+                  <label htmlFor="inputAddressLineOne">Domicilio (primera linea)</label>
                   <input
+              
                     value={buyer.address.line1}
                     onChange={handleChange}
                     type="text"
@@ -64,8 +108,9 @@ function OrderForm({ buyer, handleChange, processOrder }) {
                 </div>
 
                 <div className="form-group col-md-12">
-                  <label htmlFor="inputName">Domicilio (segunda linea)</label>
+                  <label htmlFor="inputAddressLineTwo">Domicilio (segunda linea)</label>
                   <input
+              
                     value={buyer.address.line2}
                     onChange={handleChange}
                     type="text"
@@ -78,20 +123,24 @@ function OrderForm({ buyer, handleChange, processOrder }) {
                   <div className="form-group col-md-5">
                     <label htmlFor="inputCity">Ciudad - Localidad</label>
                     <input
+                
+                    onChange={handleChange}
                       type="text"
                       className="form-control"
                       name="city"
                       value={buyer.address.city}
-                      onChange={handleChange}
+                      
                     />
                   </div>
                   <div className="form-group col-md-4">
                     <label htmlFor="inputState">Provincia</label>
                     <select
+                
+                    onChange={handleChange}
                       name="province"
                       className="form-control"
                       value={buyer.address.province}
-                      onChange={handleChange}
+                      
                     >
                       <option>Seleccionar...</option>
                       <option>Ciudad Autonoma de Buenos Aires</option>
@@ -101,24 +150,28 @@ function OrderForm({ buyer, handleChange, processOrder }) {
                   <div className="form-group col-md-3">
                     <label htmlFor="inputZip">Codigo Postal</label>
                     <input
+                
+                    onChange={handleChange}
                       type="text"
                       className="form-control"
                       name="postalCode"
                       value={buyer.address.postalCode}
-                      onChange={handleChange}
+                      
                     />
                   </div>
                 </div>
               </div>
             </div>
 
-            <button
-              type="button"
-              onClick={() => processOrder()}
+            <button disabled={false}
+              type="submit"
+
               className="btn btn-primary"
             >
               Continuar compra
             </button>
+            
+            
           </form>
         </div>
       </div>
