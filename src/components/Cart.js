@@ -25,7 +25,7 @@ function Cart() {
   const [hidden, setHidden] = useState(true);
 
   const { cartItems } = useContext(CartContext);
-
+// eslint-disable-next-line 
   useEffect(() => {
     if (cartItems.length === 0) {
       setHidden(true);

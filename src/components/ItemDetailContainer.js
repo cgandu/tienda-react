@@ -30,6 +30,7 @@ function ItemDetailContainer() {
       .finally(() => {
         
       });
+      // eslint-disable-next-line
   }, []);
 
   const { title, volumen, ano, cepa, desc, price } = item;
