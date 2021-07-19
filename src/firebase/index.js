@@ -12,6 +12,7 @@ const app = firebase.initializeApp({
     storageBucket: process.env.REACT_APP_FS_STORAGE_BUCKET,
     messagingSenderId: process.env.REACT_APP_FS_MESSAGING_SENDER_ID,
     appId: process.env.REACT_APP_FS_APP_ID,
+    measurementId: process.env.RECT_APP_MEASUREMENT_ID
    
 });
 export function getFirebase() {
